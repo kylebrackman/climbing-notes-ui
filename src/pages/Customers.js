@@ -7,7 +7,7 @@ import useFetch from '../hooks/UseFetch';
 
 export default function Customers() {
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
-    //const [customers, setCustomers] = useState();
+    //const [notes, setNotes] = useState();
     const [show, setShow] = useState(false);
 
     function toggleShow() {
@@ -21,7 +21,7 @@ export default function Customers() {
     const {
         request,
         appendData,
-        data: { customers } = {},
+        data: { notes } = {},
         errorStatus,
     } = useFetch(url, {
         method: 'GET',
@@ -31,12 +31,14 @@ export default function Customers() {
         },
     });
 
+    console.log(notes)
+
     useEffect(() => {
         request();
     }, []);
 
     //useEffect(() => {
-    //    console.log(request, appendData, customers, errorStatus);
+    //    console.log(request, appendData, notes, errorStatus);
     //});
 
     function newCustomer(name, industry) {
@@ -49,14 +51,14 @@ export default function Customers() {
 
     return (
         <>
-            <h1>Here are our customers:</h1>
-            {customers
-                ? customers.map((customer) => {
+            <h1>Here are our notes:</h1>
+            {notes
+                ? notes.map((note) => {
                       return (
-                          <div className="m-2" key={customer.id}>
-                              <Link to={'/customers/' + customer.id}>
+                          <div className="m-2" key={note.id}>
+                              <Link to={'/notes/' + note.id}>
                                   <button className="no-underline bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                      {customer.name}
+                                      {note.title}
                                   </button>
                               </Link>
                           </div>
