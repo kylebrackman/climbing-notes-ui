@@ -66,7 +66,7 @@ function App() {
                             path="/dictionary/:search"
                             element={<Definition key={new Date().getTime()} />}
                         />
-                        <Route path="/customers" element={<Customers />} />
+                        <Route path="/Notes" element={<Customers />} />
                         <Route path="/customers/:id" element={<Customer />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />

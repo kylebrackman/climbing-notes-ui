@@ -17,7 +17,7 @@ export default function Customers() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const url = baseUrl + 'api/customers/';
+    const url = baseUrl + 'api/notes/';
     const {
         request,
         appendData,

@@ -28,7 +28,7 @@ export default function Customer() {
     });
 
     useEffect(() => {
-        const url = baseUrl + 'api/customers/' + id;
+        const url = baseUrl + 'api/notes/' + id;
         fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
