@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-export default function AddCustomer(props) {
+export default function AddNote(props) {
     const [name, setName] = useState('');
     const [industry, setIndustry] = useState('');
     const [show, setShow] = useState(props.show);
@@ -16,7 +16,7 @@ export default function AddCustomer(props) {
                 onClick={props.toggleShow}
                 className="block m-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
             >
-                + Add Customer
+                + Add Note
             </button>
 
             <Modal
@@ -26,7 +26,7 @@ export default function AddCustomer(props) {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Add Customer</Modal.Title>
+                    <Modal.Title>Add Note</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form
@@ -34,7 +34,7 @@ export default function AddCustomer(props) {
                             e.preventDefault();
                             setName('');
                             setIndustry('');
-                            props.newCustomer(name, industry);
+                            props.newNote(name, industry);
                         }}
                         id="editmodal"
                         className="w-full max-w-sm"

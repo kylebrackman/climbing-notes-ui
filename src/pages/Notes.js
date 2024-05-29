@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import AddCustomer from '../components/AddCustomer';
+import AddNote from '../components/AddNote';
 import { baseUrl } from '../shared';
 import { LoginContext } from '../App';
 import useFetch from '../hooks/UseFetch';
 
-export default function Customers() {
+export default function Notes() {
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
     //const [notes, setNotes] = useState();
     const [show, setShow] = useState(false);
@@ -41,7 +41,7 @@ export default function Customers() {
     //    console.log(request, appendData, notes, errorStatus);
     //});
 
-    function newCustomer(name, industry) {
+    function newNote(name, industry) {
         appendData({ name: name, industry: industry });
 
         if (!errorStatus) {
@@ -55,8 +55,8 @@ export default function Customers() {
             {notes
                 ? notes.map((note) => {
                       return (
-                          <div className="m-2" key={note.id}>
-                              <Link to={'/notes/' + note.id}>
+                          <div className="m-2" key={note._id}>
+                              <Link to={'/notes/' + note._id}>
                                   <button className="no-underline bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
                                       {note.title}
                                   </button>
@@ -66,8 +66,8 @@ export default function Customers() {
                   })
                 : null}
 
-            <AddCustomer
-                newCustomer={newCustomer}
+            <AddNote
+                newNote={newNote}
                 show={show}
                 toggleShow={toggleShow}
             />

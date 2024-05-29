@@ -7,7 +7,7 @@ import { LoginContext } from '../App';
 
 const navigation = [
     { name: 'Employees', href: '/Employees' },
-    { name: 'Customers', href: '/Customers' },
+    { name: 'Notes', href: '/Notes' },
     { name: 'Dictionary', href: '/dictionary' },
 ];
 

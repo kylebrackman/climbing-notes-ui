@@ -40,7 +40,7 @@ export default function Login() {
     }
 
     return (
-        <form className="m-2 w-full max-w-sm" id="customer" onSubmit={login}>
+        <form className="m-2 w-full max-w-sm" id="note" onSubmit={login}>
             <div className="md:flex md:items-center mb-6">
                 <div className="md:w-1/4">
                     <label for="username">Username</label>
