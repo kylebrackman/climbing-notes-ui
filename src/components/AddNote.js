@@ -3,8 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export default function AddNote(props) {
-    const [name, setName] = useState('');
-    const [industry, setIndustry] = useState('');
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
     const [show, setShow] = useState(props.show);
 
     const handleClose = () => setShow(false);
@@ -30,11 +30,15 @@ export default function AddNote(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <form
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            setName('');
-                            setIndustry('');
-                            props.newNote(name, industry);
+                        onSubmit={(event) => {
+                            try {
+                                event.preventDefault();
+                                setTitle('');
+                                setContent('');
+                                props.newNote(title, content);
+                            } catch (error) {
+                                console.error(error);
+                            }
                         }}
                         id="editmodal"
                         className="w-full max-w-sm"
@@ -43,7 +47,7 @@ export default function AddNote(props) {
                             <div className="md:w-1/3">
                                 <label
                                     className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                                    for="name"
+                                    for="title"
                                 >
                                     Name
                                 </label>
@@ -51,12 +55,12 @@ export default function AddNote(props) {
                             <div className="md:w-2/3">
                                 <input
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                    id="name"
+                                    id="title"
                                     placeholder="Google"
                                     type="text"
-                                    value={name}
+                                    value={title}
                                     onChange={(e) => {
-                                        setName(e.target.value);
+                                        setTitle(e.target.value);
                                     }}
                                 />
                             </div>
@@ -65,20 +69,20 @@ export default function AddNote(props) {
                             <div className="md:w-1/3">
                                 <label
                                     className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                                    for="industry"
+                                    for="content"
                                 >
-                                    Industry
+                                    Content
                                 </label>
                             </div>
                             <div className="md:w-2/3">
                                 <input
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                    id="industry"
+                                    id="content"
                                     placeholder="Computing"
                                     type="text"
-                                    value={industry}
+                                    value={content}
                                     onChange={(e) => {
-                                        setIndustry(e.target.value);
+                                        setContent(e.target.value);
                                     }}
                                 />
                             </div>

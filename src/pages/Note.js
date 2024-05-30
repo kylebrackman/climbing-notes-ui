@@ -21,8 +21,8 @@ export default function Note() {
         if (!note) return;
 
         let equal = true;
-        if (note.name !== tempNote.name) equal = false;
-        if (note.industry !== tempNote.industry) equal = false;
+        if (note.title !== tempNote.title) equal = false;
+        if (note.content !== tempNote.content) equal = false;
 
         if (equal) setChanged(false);
     });
@@ -110,20 +110,20 @@ export default function Note() {
                     >
                         <div className="md:flex md:items-center mb-6">
                             <div className="md:w-1/4">
-                                <label for="name">Name</label>
+                                <label for="title">Title</label>
                             </div>
 
                             <div className="md:w-3/4">
                                 <input
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                    id="name"
+                                    id="title"
                                     type="text"
-                                    value={tempNote.name}
+                                    value={tempNote.title}
                                     onChange={(e) => {
                                         setChanged(true);
                                         setTempNote({
                                             ...tempNote,
-                                            name: e.target.value,
+                                            title: e.target.value,
                                         });
                                     }}
                                 />
@@ -132,20 +132,20 @@ export default function Note() {
 
                         <div className="md:flex md:items-center mb-6">
                             <div className="md:w-1/4">
-                                <label for="industry">Industry</label>
+                                <label for="content">Content</label>
                             </div>
 
                             <div className="md:w-3/4">
                                 <input
-                                    id="industry"
+                                    id="content"
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                                     type="text"
-                                    value={tempNote.industry}
+                                    value={tempNote.content}
                                     onChange={(e) => {
                                         setChanged(true);
                                         setTempNote({
                                             ...tempNote,
-                                            industry: e.target.value,
+                                            content: e.target.value,
                                         });
                                     }}
                                 />

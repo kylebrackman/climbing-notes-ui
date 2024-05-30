@@ -41,8 +41,8 @@ export default function Notes() {
     //    console.log(request, appendData, notes, errorStatus);
     //});
 
-    function newNote(name, industry) {
-        appendData({ name: name, industry: industry });
+    function newNote(title, content) {
+        appendData({ title: title, content: content });
 
         if (!errorStatus) {
             toggleShow();
